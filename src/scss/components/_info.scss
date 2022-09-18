@@ -1,0 +1,50 @@
+@import '../variables';
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  // align-content: space-between;
+  max-width: 660px;
+  max-height: 720px;
+
+  .info-header {
+    // margin-bottom: 40px;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .info-body {
+    max-width: 380px;
+
+    p {
+      margin: 20px 0 20px 0;
+    }
+
+    ul {
+      li {
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 400;
+
+        background: url(../../assets/img/bulletRed.svg) no-repeat left center;
+        padding: 5px 10px 5px 25px;
+        list-style: none;
+        margin: 0;
+        vertical-align: middle;
+      }
+
+      .second-list {
+        li {
+          background: url(../../assets/img/bulletLight.svg) no-repeat left center;
+          padding: 5px 10px 5px 25px;
+          list-style: none;
+          margin: 0;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

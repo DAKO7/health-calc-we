@@ -1,0 +1,55 @@
+@import '../variables';
+.root-checkbox {
+  p {
+    line-height: normal;
+  }
+  .custom-checkbox {
+    max-width: 20px;
+    max-height: 20px;
+
+    .checkbox {
+      display: none;
+
+      &:checked + label::after {
+        background: $white url(../../assets/img/check.svg) 100% 50% no-repeat;
+      }
+
+      & + label {
+        z-index: 3;
+        cursor: pointer;
+        // padding-left: 33px;
+        display: block;
+        position: relative;
+        height: 20px;
+        line-height: 1.7em;
+        left: 0;
+
+        &::before {
+          z-index: 2;
+          top: 0px;
+          // left: 2px;
+          width: 20px;
+          height: 20px;
+          background: $grad-mlight;
+          display: block;
+          content: '';
+          position: absolute;
+          border-radius: 4px;
+        }
+
+        &::after {
+          z-index: 2;
+          top: 2px;
+          left: 2px;
+          width: 16px;
+          height: 16px;
+          background: $white;
+          display: block;
+          content: '';
+          position: absolute;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}

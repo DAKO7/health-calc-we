@@ -1,0 +1,77 @@
+@import '../variables';
+
+.calc {
+  max-width: 320px;
+  max-height: 755px;
+  width: 100%;
+  padding: 80px 20px;
+
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  aspect-ratio: 1.5;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: $white;
+    --mask: conic-gradient(from 45deg at 20px 20px, #000 75%, #0000 0) -20px 0/100% 51% repeat-x,
+      conic-gradient(from 135deg at 20px calc(100% - 20px), #0000 25%, #000 0) -20px 100%/100% 51% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+
+  * {
+    color: $metal-dark;
+  }
+
+  .results {
+    border-top: 1px solid $metal-light;
+    border-bottom: 1px solid $metal-light;
+
+    .result {
+      text-align: center;
+      max-width: 145px;
+
+      .result-days {
+        max-height: 45px;
+      }
+
+      .result-daily {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 15px;
+      }
+    }
+  }
+
+  h2,
+  .input,
+  .custom-checkbox,
+  .button {
+    margin-bottom: 20px;
+  }
+
+  .total {
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      margin-bottom: 5px;
+    }
+  }
+}
