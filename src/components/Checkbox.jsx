@@ -13,7 +13,7 @@ export const Checkbox = ({ value, setValue, setMaxDuration }) => {
           type="checkbox"
           value="tuberculosis"
           checked={value}></input>
-        <label for="tuberculosis"></label>
+        <label htmlFor="tuberculosis"></label>
       </div>
       <p className="ml-30">I have tuberculosis</p>
     </div>

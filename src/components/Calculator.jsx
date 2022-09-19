@@ -2,13 +2,11 @@ import React from 'react';
 
 import { Checkbox } from './Checkbox';
 import { Input } from './Input';
+import { Result } from './Result';
 
 export const Calculator = () => {
-  const [income, setIncome] = React.useState();
+  const [income, setIncome] = React.useState('');
   const [sickDays, setSickDays] = React.useState('');
-
-  const incomeRef = React.useRef();
-  const sickDaysRef = React.useRef();
 
   const [tuberculosis, setTuberculosis] = React.useState(false);
   const [empDays, setEmpDays] = React.useState(0);
@@ -39,6 +37,8 @@ export const Calculator = () => {
       setInsMoney(insMoney);
 
       setDailyAllow(netDailySalary);
+    } else {
+      alert('Please fill in the fields correctly');
     }
   }
 
@@ -50,7 +50,6 @@ export const Calculator = () => {
           title="Average income"
           type="€"
           id="income"
-          ref={incomeRef}
           setValue={setIncome}
           value={income}
           maxLength="5"
@@ -59,7 +58,6 @@ export const Calculator = () => {
           title="Days on sick-leave"
           type="days"
           id="sickDays"
-          ref={sickDaysRef}
           setValue={setSickDays}
           value={sickDays}
           maxLength="3"
@@ -70,28 +68,18 @@ export const Calculator = () => {
         </button>
       </form>
       <div className="results mb-20 pt-20 pb-20 d-flex justify-between">
-        <div className="result">
-          <p className="result-days mb-10">
-            The employer compensates <br />
-            <b>{empDays} days</b>
-          </p>
-          <h3>{empMoney.toFixed(2)}€</h3>
-          <p className="result-daily">
-            Daily allowance <br />
-            {dailyAllow.toFixed(2)} €
-          </p>
-        </div>
-        <div className="result">
-          <p className="mb-10">
-            Health Insurance compensates <br />
-            <b>{insDays} days</b>
-          </p>
-          <h3>{insMoney.toFixed(2)}€</h3>
-          <p>
-            Daily allowance <br />
-            {dailyAllow.toFixed(2)} €
-          </p>
-        </div>
+        <Result
+          title="The employer compensates"
+          days={empDays}
+          money={empMoney}
+          dailyAllow={dailyAllow}
+        />
+        <Result
+          title="Health Insurance compensates"
+          days={insDays}
+          money={insMoney}
+          dailyAllow={dailyAllow}
+        />
       </div>
       <div className="d-flex align-center flex-column total">
         <p>Compensation total for {sickDays === '' ? 0 : sickDays} days (net)</p>
